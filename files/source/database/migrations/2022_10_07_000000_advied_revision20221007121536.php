@@ -433,6 +433,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
                 $table->smallInteger('enabled')->default(0);
+                $table->smallInteger('type')->default(0);
                 $table->string('title')->nullable();
                 $table->longText('description')->nullable();
             });
@@ -444,6 +445,12 @@ class ADVIEDRevision20221007121536 extends Migration
                     if (in_array('adminlteadviedtemplatetable_enabled_foreign', $foreignKeys)) {
                         $table->dropForeign('adminlteadviedtemplatetable_enabled_foreign');
                         $table->dropIndex('adminlteadviedtemplatetable_enabled_foreign');
+                    }
+                }
+                if (Schema::hasColumn('adminlteadviedtemplatetable', 'type')) {                    
+                    if (in_array('adminlteadviedtemplatetable_type_foreign', $foreignKeys)) {
+                        $table->dropForeign('adminlteadviedtemplatetable_type_foreign');
+                        $table->dropIndex('adminlteadviedtemplatetable_type_foreign');
                     }
                 }
                 if (Schema::hasColumn('adminlteadviedtemplatetable', 'title')) {                    
@@ -466,6 +473,11 @@ class ADVIEDRevision20221007121536 extends Migration
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
+                }
+                if (Schema::hasColumn('adminlteadviedtemplatetable', 'type')) { 
+                    $table->smallInteger('type')->default(0)->change();
+                } else {
+                    $table->smallInteger('type')->default(0);
                 }
                 if (Schema::hasColumn('adminlteadviedtemplatetable', 'title')) { 
                     $table->string('title')->nullable()->change();

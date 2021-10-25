@@ -32,21 +32,12 @@ class AdvancedImportExportDataController extends Controller
         $data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
 
-        if ($user_can_view) {
+        if ($advied_admin) {
             $object = Template::where('id', $id)->first();
 
-            $data['id'] = $object->id;
-            $data['user_can_create'] = $user_can_create;
-            $data['user_can_read'] = $user_can_view;
-            $data['user_can_update'] = $user_can_update;
-            $data['user_can_delete'] = $user_can_delete;
-            $data['user_can_view'] = $user_can_view;
-            
+            $data['advied_admin'] = $advied_admin;
             $data['id'] = $object->id;
             $data['deleted'] = $object->deleted;
             $data['created_at'] = $object->created_at;
@@ -75,10 +66,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -87,13 +75,7 @@ class AdvancedImportExportDataController extends Controller
             }
 
             $list[$index] = array();
-            $list[$index]['id'] = $object->id;
-            $list[$index]['user_can_create'] = $user_can_create;
-            $list[$index]['user_can_read'] = $user_can_view;
-            $list[$index]['user_can_update'] = $user_can_update;
-            $list[$index]['user_can_delete'] = $user_can_delete;
-            $list[$index]['user_can_view'] = $user_can_view;
-            
+            $list[$index]['advied_admin'] = $advied_admin;
             $list[$index]['id'] = $object->id;
             $list[$index]['deleted'] = $object->deleted;
             $list[$index]['created_at'] = $object->created_at;
@@ -118,8 +100,7 @@ class AdvancedImportExportDataController extends Controller
                 : 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_template');
-
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
 
         $objectList = Template::where('type', $type)
             ->orderBy('title', 'asc')
@@ -134,7 +115,7 @@ class AdvancedImportExportDataController extends Controller
                 continue;
             }
 
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 if (0 == $object->enabled) {
                     continue;
                 }
@@ -159,22 +140,19 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         $id = intval($request->input('id'));
 
         if ($id > 0) {
-            $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_template');
-
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not update this object. Contact your system administrator for more information.');
             } else {
                 $objectTemplate = Template::find($id);
             }
         } else {
-            $user_can_create = $objectAdminLTE->user_has_protab_permission('create_adminlteadvied_template');
-            
-            if (!$user_can_create) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not create any object. Contact your system administrator for more information.');
             } else {
@@ -220,7 +198,9 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        if (!$objectAdminLTE->user_has_protab_permission('delete_adminlteadvied_template')) {
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
+        if (!$advied_admin) {
             $return_data['id'] = 1;
             $return_data['has_error'] = true;
             $return_data['error_msg'] = __('You can not delete this object. Contact your system administrator for more information.');
@@ -253,21 +233,12 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         foreach ($objectList as $object)
         {
             $list[$index] = array();
-            $list[$index]['id'] = $object->id;
-            $list[$index]['user_can_create'] = $user_can_create;
-            $list[$index]['user_can_read'] = $user_can_view;
-            $list[$index]['user_can_update'] = $user_can_update;
-            $list[$index]['user_can_delete'] = $user_can_delete;
-            $list[$index]['user_can_view'] = $user_can_view;
-            
+            $list[$index]['advied_admin'] = $advied_admin;            
             $list[$index]['id'] = $object->id;
             $list[$index]['deleted'] = $object->deleted;
             $list[$index]['created_at'] = $object->created_at;
@@ -293,22 +264,19 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         $id = intval($request->input('id'));
 
         if ($id > 0) {
-            $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_database');
-
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not update this object. Contact your system administrator for more information.');
             } else {
                 $objectDatabase = Database::find($id);
             }
         } else {
-            $user_can_create = $objectAdminLTE->user_has_protab_permission('create_adminlteadvied_database');
-            
-            if (!$user_can_create) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not create any object. Contact your system administrator for more information.');
             } else {
@@ -403,7 +371,9 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        if (!$objectAdminLTE->user_has_protab_permission('delete_adminlteadvied_database')) {
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
+        if (!$advied_admin) {
             $return_data['id'] = 1;
             $return_data['has_error'] = true;
             $return_data['error_msg'] = __('You can not delete this object. Contact your system administrator for more information.');
@@ -458,7 +428,7 @@ class AdvancedImportExportDataController extends Controller
     public function get_database_option_list(Request $request) 
     {    
         $objectAdminLTE = new AdminLTE();
-        $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_database');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
 
         $objectList = Database::where('deleted', 0)
             ->orderBy('title', 'asc')
@@ -469,7 +439,7 @@ class AdvancedImportExportDataController extends Controller
         
         foreach ($objectList as $object)
         {
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 if (0 == $object->enabled) {
                     continue;
                 }
@@ -513,10 +483,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -525,13 +492,7 @@ class AdvancedImportExportDataController extends Controller
             }
 
             $list[$index] = array();
-            $list[$index]['id'] = $object->id;
-            $list[$index]['user_can_create'] = $user_can_create;
-            $list[$index]['user_can_read'] = $user_can_view;
-            $list[$index]['user_can_update'] = $user_can_update;
-            $list[$index]['user_can_delete'] = $user_can_delete;
-            $list[$index]['user_can_view'] = $user_can_view;
-            
+            $list[$index]['advied_admin'] = $advied_admin;            
             $list[$index]['id'] = $object->id;
             $list[$index]['deleted'] = $object->deleted;
             $list[$index]['created_at'] = $object->created_at;
@@ -659,22 +620,19 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
         $id = intval($request->input('id'));
 
         if ($id > 0) {
-            $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_action');
-
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not update this object. Contact your system administrator for more information.');
             } else {
                 $objectAction = Action::find($id);
             }
         } else {
-            $user_can_create = $objectAdminLTE->user_has_protab_permission('create_adminlteadvied_action');
-            
-            if (!$user_can_create) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not create any object. Contact your system administrator for more information.');
             } else {
@@ -723,7 +681,9 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        if (!$objectAdminLTE->user_has_protab_permission('delete_adminlteadvied_action')) {
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
+        if (!$advied_admin) {
             $return_data['id'] = 1;
             $return_data['has_error'] = true;
             $return_data['error_msg'] = __('You can not delete this object. Contact your system administrator for more information.');
@@ -761,10 +721,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -773,13 +730,7 @@ class AdvancedImportExportDataController extends Controller
             }
 
             $list[$index] = array();
-            $list[$index]['id'] = $object->id;
-            $list[$index]['user_can_create'] = $user_can_create;
-            $list[$index]['user_can_read'] = $user_can_view;
-            $list[$index]['user_can_update'] = $user_can_update;
-            $list[$index]['user_can_delete'] = $user_can_delete;
-            $list[$index]['user_can_view'] = $user_can_view;
-            
+            $list[$index]['advied_admin'] = $advied_admin;            
             $list[$index]['id'] = $object->id;
             $list[$index]['deleted'] = $object->deleted;
             $list[$index]['created_at'] = $object->created_at;
@@ -805,22 +756,19 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         $id = intval($request->input('id'));
 
         if ($id > 0) {
-            $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_validation');
-
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not update this object. Contact your system administrator for more information.');
             } else {
                 $objectValidation = Validation::find($id);
             }
         } else {
-            $user_can_create = $objectAdminLTE->user_has_protab_permission('create_adminlteadvied_validation');
-            
-            if (!$user_can_create) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not create any object. Contact your system administrator for more information.');
             } else {
@@ -868,7 +816,9 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        if (!$objectAdminLTE->user_has_protab_permission('delete_adminlteadvied_validation')) {
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
+        if (!$advied_admin) {
             $return_data['id'] = 1;
             $return_data['has_error'] = true;
             $return_data['error_msg'] = __('You can not delete this object. Contact your system administrator for more information.');
@@ -906,10 +856,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -918,13 +865,7 @@ class AdvancedImportExportDataController extends Controller
             }
 
             $list[$index] = array();
-            $list[$index]['id'] = $object->id;
-            $list[$index]['user_can_create'] = $user_can_create;
-            $list[$index]['user_can_read'] = $user_can_view;
-            $list[$index]['user_can_update'] = $user_can_update;
-            $list[$index]['user_can_delete'] = $user_can_delete;
-            $list[$index]['user_can_view'] = $user_can_view;
-            
+            $list[$index]['advied_admin'] = $advied_admin;            
             $list[$index]['id'] = $object->id;
             $list[$index]['deleted'] = $object->deleted;
             $list[$index]['created_at'] = $object->created_at;
@@ -951,22 +892,19 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         $id = intval($request->input('id'));
 
         if ($id > 0) {
-            $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_query');
-
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not update this object. Contact your system administrator for more information.');
             } else {
                 $objectQuery = Query::find($id);
             }
         } else {
-            $user_can_create = $objectAdminLTE->user_has_protab_permission('create_adminlteadvied_query');
-            
-            if (!$user_can_create) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not create any object. Contact your system administrator for more information.');
             } else {
@@ -1017,7 +955,9 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        if (!$objectAdminLTE->user_has_protab_permission('delete_adminlteadvied_query')) {
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
+        if (!$advied_admin) {
             $return_data['id'] = 1;
             $return_data['has_error'] = true;
             $return_data['error_msg'] = __('You can not delete this object. Contact your system administrator for more information.');
@@ -1160,10 +1100,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $user_can_view = true;//$objectAdminLTE->user_has_protab_permission('view_proje_odeme_islemi');
-        $user_can_create = true;//$objectAdminLTE->user_has_protab_permission('create_proje_odeme_islemi');
-        $user_can_update = true;//$objectAdminLTE->user_has_protab_permission('edit_proje_odeme_islemi');
-        $user_can_delete = true;//$objectAdminLTE->user_has_protab_permission('delete_proje_odeme_islemi');
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -1172,13 +1109,7 @@ class AdvancedImportExportDataController extends Controller
             }
 
             $list[$index] = array();
-            $list[$index]['id'] = $object->id;
-            $list[$index]['user_can_create'] = $user_can_create;
-            $list[$index]['user_can_read'] = $user_can_view;
-            $list[$index]['user_can_update'] = $user_can_update;
-            $list[$index]['user_can_delete'] = $user_can_delete;
-            $list[$index]['user_can_view'] = $user_can_view;
-            
+            $list[$index]['advied_admin'] = $advied_admin;            
             $list[$index]['id'] = $object->id;
             $list[$index]['deleted'] = $object->deleted;
             $list[$index]['created_at'] = $object->created_at;
@@ -1208,22 +1139,19 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
         
         $id = intval($request->input('id'));
 
         if ($id > 0) {
-            $user_can_update = $objectAdminLTE->user_has_protab_permission('edit_adminlteadvied_parameter');
-
-            if (!$user_can_update) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not update this object. Contact your system administrator for more information.');
             } else {
                 $objectParameter = Parameter::find($id);
             }
         } else {
-            $user_can_create = $objectAdminLTE->user_has_protab_permission('create_adminlteadvied_parameter');
-            
-            if (!$user_can_create) {
+            if (!$advied_admin) {
                 $has_error = true;
                 $error_msg = __('You can not create any object. Contact your system administrator for more information.');
             } else {
@@ -1274,7 +1202,9 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        if (!$objectAdminLTE->user_has_protab_permission('delete_adminlteadvied_parameter')) {
+        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+
+        if (!$advied_admin) {
             $return_data['id'] = 1;
             $return_data['has_error'] = true;
             $return_data['error_msg'] = __('You can not delete this object. Contact your system administrator for more information.');
