@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 /* {{@snippet:begin_class}} */
 
-class ADVIEDRevision20221007121536 extends Migration
+class ADVIEDRevision20221025180000 extends Migration
 {
 
     /* {{@snippet:begin_properties}} */
@@ -761,6 +761,75 @@ class ADVIEDRevision20221007121536 extends Migration
         } // if (!Schema::hasTable('adminlteadviedparametertable')) {
 
         /* {{@snippet:end_adminlteadviedparametertable_migration}} */
+
+        /* {{@snippet:begin_validationtable_migration}} */        
+        if (!Schema::hasTable('validationtable')) {
+            Schema::create('validationtable', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->timestamps();
+                $table->boolean('deleted')->default(0);
+                $table->smallInteger('enabled')->default(0);
+                $table->bigInteger('__order')->default(0);
+                $table->longText('condition')->nullable();
+                $table->longText('message')->nullable();
+            });
+        } else {
+            Schema::table('validationtable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('validationtable');
+                //Schema::disableForeignKeyConstraints();
+                if (Schema::hasColumn('validationtable', 'enabled')) {                    
+                    if (in_array('validationtable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('validationtable_enabled_foreign');
+                        $table->dropIndex('validationtable_enabled_foreign');
+                    }
+                }
+                if (Schema::hasColumn('validationtable', '__order')) {                    
+                    if (in_array('validationtable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('validationtable___order_foreign');
+                        $table->dropIndex('validationtable___order_foreign');
+                    }
+                }
+                if (Schema::hasColumn('validationtable', 'condition')) {                    
+                    if (in_array('validationtable_condition_foreign', $foreignKeys)) {
+                        $table->dropForeign('validationtable_condition_foreign');
+                        $table->dropIndex('validationtable_condition_foreign');
+                    }
+                }
+                if (Schema::hasColumn('validationtable', 'message')) {                    
+                    if (in_array('validationtable_message_foreign', $foreignKeys)) {
+                        $table->dropForeign('validationtable_message_foreign');
+                        $table->dropIndex('validationtable_message_foreign');
+                    }
+                }
+                //Schema::enableForeignKeyConstraints();
+            });
+
+            Schema::table('validationtable', function (Blueprint $table) {
+                if (Schema::hasColumn('validationtable', 'enabled')) { 
+                    $table->smallInteger('enabled')->default(0)->change();
+                } else {
+                    $table->smallInteger('enabled')->default(0);
+                }
+                if (Schema::hasColumn('validationtable', '__order')) { 
+                    $table->bigInteger('__order')->default(0)->change();
+                } else {
+                    $table->bigInteger('__order')->default(0);
+                }
+                if (Schema::hasColumn('validationtable', 'condition')) { 
+                    $table->longText('condition')->nullable()->change();
+                } else {
+                    $table->longText('condition')->nullable();
+                }
+                if (Schema::hasColumn('validationtable', 'message')) { 
+                    $table->longText('message')->nullable()->change();
+                } else {
+                    $table->longText('message')->nullable();
+                }
+            });
+            
+        } // if (!Schema::hasTable('validationtable')) {
+
+        /* {{@snippet:end_validationtable_migration}} */
         
         Schema::table('adminlteadvieddatabasetable', function(Blueprint $table) {
             if (Schema::hasColumn('adminlteadvieddatabasetable', 'database_type')) { 
@@ -828,6 +897,21 @@ class ADVIEDRevision20221007121536 extends Migration
                 $table->foreign('template_id')->references('id')->on('adminlteadviedtemplatetable'); 
             }     
         });
+        Schema::table('adminlteadviedvalidationtable', function(Blueprint $table) {
+            if (Schema::hasColumn('adminlteadviedvalidationtable', 'template_id')) { 
+                $table->unsignedBigInteger('template_id')->nullable()->unsigned()->change();
+            } else {
+                $table->unsignedBigInteger('template_id')->nullable()->unsigned();
+            }
+
+            $foreignKeys = $this->listTableForeignKeys('adminlteadviedvalidationtable');
+
+            if (!in_array('adminlteadviedvalidationtable_template_id_foreign', $foreignKeys)) {
+                $table->foreign('template_id')->references('id')->on('adminlteadviedtemplatetable'); 
+            }     
+        });
+
+    
 
         /* {{@snippet:end_up_method}} */
     }
