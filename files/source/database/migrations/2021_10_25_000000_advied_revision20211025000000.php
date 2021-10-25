@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 /* {{@snippet:begin_class}} */
 
-class ADVIEDRevision20221025180000 extends Migration
+class ADVIEDRevision20211025000000 extends Migration
 {
 
     /* {{@snippet:begin_properties}} */
