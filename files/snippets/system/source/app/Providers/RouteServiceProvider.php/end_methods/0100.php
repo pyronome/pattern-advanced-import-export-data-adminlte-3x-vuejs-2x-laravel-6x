@@ -20,4 +20,3 @@
                 ->namespace('App\Http\Controllers\AdminLTE')
                 ->group(base_path('routes/adminlte-advanced.php'));
     }
-        $this->mapAdminLTEAdvancedRoutes();

@@ -39,7 +39,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 $table->string('value3')->nullable();
             });
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 1,
                     'deleted' => 0,
@@ -55,7 +55,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 2,
                     'deleted' => 0,
@@ -71,7 +71,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 3,
                     'deleted' => 0,
@@ -87,7 +87,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 4,
                     'deleted' => 0,
@@ -103,7 +103,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 5,
                     'deleted' => 0,
@@ -119,7 +119,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 6,
                     'deleted' => 0,
@@ -135,7 +135,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 7,
                     'deleted' => 0,
@@ -151,7 +151,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 8,
                     'deleted' => 0,
@@ -167,7 +167,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 9,
                     'deleted' => 0,
@@ -183,7 +183,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 10,
                     'deleted' => 0,
@@ -199,7 +199,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 11,
                     'deleted' => 0,
@@ -215,7 +215,7 @@ class ADVIEDRevision20221007121536 extends Migration
                 )
             );
 
-            DB::table('adminlteusergrouptable')->insert(
+            DB::table('adminlteadviedlookuptable')->insert(
                 array(
                     'id' => 12,
                     'deleted' => 0,
