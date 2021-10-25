@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 /* {{@snippet:begin_class}} */
 
-class ADVIEDRevision20211025000000 extends Migration
+class ADVIEDRevision20211025000002 extends Migration
 {
 
     /* {{@snippet:begin_properties}} */
@@ -762,74 +762,85 @@ class ADVIEDRevision20211025000000 extends Migration
 
         /* {{@snippet:end_adminlteadviedparametertable_migration}} */
 
-        /* {{@snippet:begin_validationtable_migration}} */        
-        if (!Schema::hasTable('validationtable')) {
-            Schema::create('validationtable', function (Blueprint $table) {
+        /* {{@snippet:begin_adminlteadviedvalidationtable_migration}} */        
+        if (!Schema::hasTable('adminlteadviedvalidationtable')) {
+            Schema::create('adminlteadviedvalidationtable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
                 $table->smallInteger('enabled')->default(0);
                 $table->bigInteger('__order')->default(0);
+                $table->string('title')->nullable();
                 $table->longText('condition')->nullable();
                 $table->longText('message')->nullable();
             });
         } else {
-            Schema::table('validationtable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('validationtable');
+            Schema::table('adminlteadviedvalidationtable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('adminlteadviedvalidationtable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('validationtable', 'enabled')) {                    
-                    if (in_array('validationtable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('validationtable_enabled_foreign');
-                        $table->dropIndex('validationtable_enabled_foreign');
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'enabled')) {                    
+                    if (in_array('adminlteadviedvalidationtable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('adminlteadviedvalidationtable_enabled_foreign');
+                        $table->dropIndex('adminlteadviedvalidationtable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('validationtable', '__order')) {                    
-                    if (in_array('validationtable___order_foreign', $foreignKeys)) {
-                        $table->dropForeign('validationtable___order_foreign');
-                        $table->dropIndex('validationtable___order_foreign');
+                if (Schema::hasColumn('adminlteadviedvalidationtable', '__order')) {                    
+                    if (in_array('adminlteadviedvalidationtable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('adminlteadviedvalidationtable___order_foreign');
+                        $table->dropIndex('adminlteadviedvalidationtable___order_foreign');
                     }
                 }
-                if (Schema::hasColumn('validationtable', 'condition')) {                    
-                    if (in_array('validationtable_condition_foreign', $foreignKeys)) {
-                        $table->dropForeign('validationtable_condition_foreign');
-                        $table->dropIndex('validationtable_condition_foreign');
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'title')) {                    
+                    if (in_array('adminlteadviedvalidationtable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('adminlteadviedvalidationtable_title_foreign');
+                        $table->dropIndex('adminlteadviedvalidationtable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('validationtable', 'message')) {                    
-                    if (in_array('validationtable_message_foreign', $foreignKeys)) {
-                        $table->dropForeign('validationtable_message_foreign');
-                        $table->dropIndex('validationtable_message_foreign');
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'condition')) {                    
+                    if (in_array('adminlteadviedvalidationtable_condition_foreign', $foreignKeys)) {
+                        $table->dropForeign('adminlteadviedvalidationtable_condition_foreign');
+                        $table->dropIndex('adminlteadviedvalidationtable_condition_foreign');
+                    }
+                }
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'message')) {                    
+                    if (in_array('adminlteadviedvalidationtable_message_foreign', $foreignKeys)) {
+                        $table->dropForeign('adminlteadviedvalidationtable_message_foreign');
+                        $table->dropIndex('adminlteadviedvalidationtable_message_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('validationtable', function (Blueprint $table) {
-                if (Schema::hasColumn('validationtable', 'enabled')) { 
+            Schema::table('adminlteadviedvalidationtable', function (Blueprint $table) {
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('validationtable', '__order')) { 
+                if (Schema::hasColumn('adminlteadviedvalidationtable', '__order')) { 
                     $table->bigInteger('__order')->default(0)->change();
                 } else {
                     $table->bigInteger('__order')->default(0);
                 }
-                if (Schema::hasColumn('validationtable', 'condition')) { 
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'title')) { 
+                    $table->string('title')->nullable()->change();
+                } else {
+                    $table->string('title')->nullable();
+                }
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'condition')) { 
                     $table->longText('condition')->nullable()->change();
                 } else {
                     $table->longText('condition')->nullable();
                 }
-                if (Schema::hasColumn('validationtable', 'message')) { 
+                if (Schema::hasColumn('adminlteadviedvalidationtable', 'message')) { 
                     $table->longText('message')->nullable()->change();
                 } else {
                     $table->longText('message')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('validationtable')) {
-
-        /* {{@snippet:end_validationtable_migration}} */
+        } // if (!Schema::hasTable('adminlteadviedvalidationtable')) {
+        /* {{@snippet:end_adminlteadviedvalidationtable_migration}} */
         
         Schema::table('adminlteadvieddatabasetable', function(Blueprint $table) {
             if (Schema::hasColumn('adminlteadvieddatabasetable', 'database_type')) { 
@@ -911,7 +922,6 @@ class ADVIEDRevision20211025000000 extends Migration
             }     
         });
 
-    
 
         /* {{@snippet:end_up_method}} */
     }
@@ -940,7 +950,8 @@ class ADVIEDRevision20211025000000 extends Migration
   
         Schema::drop('adminlteadviedparametertable');
   
-        
+        Schema::drop('adminlteadviedvalidationtable');
+
         */
 		/* {{@snippet:end_down_method}} */
 
