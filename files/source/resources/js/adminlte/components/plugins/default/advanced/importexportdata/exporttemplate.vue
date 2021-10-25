@@ -1108,7 +1108,7 @@
                         self.processLoadQueue();
                     }).finally(function() {
                         let authorize = {};
-                        authorize = AdminLTEHelper.hasUserProtabAuthorized(self.page.variables, 'advied_admin');
+                        authorize = AdminLTEHelper.hasUserADVIEDAuthorized(self.page.variables, 'advied_admin');
                         self.page.is_authorized = authorize.status;
                         self.page.unauthorized_type = authorize.type;
                         self.processLoadQueue();
