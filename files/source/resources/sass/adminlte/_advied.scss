@@ -1,0 +1,506 @@
+
+.iconic-btn {
+    border: none;
+    color: #9d9d9d;
+    font-size: 16px;
+}
+
+.iconic-btn:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.iconic-btn.delete-btn:hover {
+    color: #e71313;
+    text-decoration: none;
+}
+
+.checkbox-item-list,
+.sortable-item-list {
+    list-style: none;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+}
+
+.checkbox-item-list > li,
+.sortable-item-list > li {
+    border-radius: 2px;
+    background: #f8f9fa;
+    border-left: 2px solid #e9ecef;
+    color: #495057;
+    margin-bottom: 2px;
+    padding: 10px;
+}
+
+.checkbox-item-list .handle,
+.sortable-item-list .handle {
+    cursor: move;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.checkbox-item-list > li .tools,
+.sortable-item-list > li .tools {
+    color: #dc3545;
+}
+
+.checkbox-item-list .list-item {
+    display: block;
+}
+
+.checkbox-item-list .list-item > div {
+    display: table-cell;
+    vertical-align: top;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.checkbox-item-list .list-item > div.sortable-handle {
+    min-width: 60px;
+}
+
+.checkbox-item-list .list-item > div.main-text {
+    width: 100%;
+    word-break: break-word;
+}
+
+.sortable-item-list .ui-sortable-placeholder {
+    min-height: 50px;
+    border: 2px dashed #c4c7ca;
+    background-color: #ffffff;
+}
+
+.ul-selection {
+    list-style-type: none;
+    -webkit-padding-start: 0;
+    padding-inline-start: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.ul-selection > li {
+    padding: 2px 0 1px;
+    border-bottom: 1px solid #e2e2e2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.ul-selection.ul-highlighted > li:hover {
+    background: #f0f8ff;
+}
+
+.btn-mini-on-table {
+    padding-right: 5px;
+    padding-left: 5px;
+    min-width: initial;
+}
+
+.jstree-container {
+  height: 265px;
+  overflow: auto;
+  display: block;
+  width: 100%;
+}
+
+.overview-list.overview-container {
+    display: block;
+    padding:40px;
+}
+
+.overview-list.overview-container  .card {
+    max-width: 250px;
+    display: inline-block;
+    margin:10px;
+    vertical-align: top;
+}
+
+.list-item > .tools {
+  min-width: 70px;
+}
+
+.main-text > .div-column-name {
+  display: table-cell;
+  padding-right: 10px;
+  vertical-align: inherit;
+  color: #14a7b5;
+}
+
+.main-text > .div-column-value {
+  display: table-cell;
+}
+
+#upload-container pre {
+    background-color: #fff;
+    border:none;
+  }
+  
+  #upload-container #drop{
+    border:2px dashed #bbb;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    padding:25px;
+    text-align:center;
+    color:#bbb;
+    font-size: 2rem;
+  }
+  
+  .divParameter {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .textareaCode {
+    font-family: monospace;
+    font-size: 15px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+  
+  .divParameter .spanParameterTitle {
+    font-weight: bold;
+  }
+  
+  #export_no_results {
+    display: none;
+    text-align: center;
+    padding: 50px;
+    font-size: 20px;
+  }
+  
+  #export_no_results > p {
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 10px;
+    color: #666666;
+  }
+
+  #importFile {
+    outline: none;
+    border: none;
+    padding: 0;
+  }
+
+body {
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: 0.8rem;
+}
+
+.sectionContent {
+    padding: 10px 0px;
+    user-select: text;
+    display: block;
+    float: none;
+    padding: 10px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+table {
+    margin: 10px 0px;
+    width: 100% !important;
+}
+
+table > thead > tr > th,
+table > tbody > tr > td {
+    padding: 5px !important;
+    display: table-cell !important;
+    vertical-align: middle !important;
+    border-radius: 5px !important;
+    border: 1px solid #ccc;
+}
+
+table > thead > tr > th {
+    font-weight: 600 !important;
+}
+
+h6 {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+.row {
+    margin-bottom: 0px;
+}
+
+.number-cell {
+    text-align: right;
+}
+
+div.dt-buttons {
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+button.dt-button {
+    background: #fff;
+    color: #000;
+    border: none;
+    width: 55px;
+    transition: .2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    float: left;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+
+button.buttons-colvis {
+    width: 80px;
+}
+
+div.dt-button-collection-title {
+    text-align: center;
+    padding: 0.3em 0 0.5em;
+    font-size: 0.9em;
+}
+
+div.dt-button-collection-title:empty {
+    display: none;
+}
+
+div.dt-button-collection {
+    position: absolute;
+    top: 29px;
+    left: 0;
+    width: 150px;
+    margin-top: 3px;
+    padding: 8px 8px 4px 8px;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: white;
+    overflow: hidden;
+    z-index: 2002;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+
+}
+
+div.dt-button-collection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    margin-top: 3px;
+    padding: 8px 8px 4px 8px;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: white;
+    overflow: hidden;
+    z-index: 2002;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+div.dt-button-collection button.dt-button,
+div.dt-button-collection div.dt-button,
+div.dt-button-collection a.dt-button {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: block;
+    float: none;
+    margin-bottom: 4px;
+    margin-right: 0;
+}
+div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-collection button.dt-button.active:not(.disabled),
+div.dt-button-collection div.dt-button:active:not(.disabled),
+div.dt-button-collection div.dt-button.active:not(.disabled),
+div.dt-button-collection a.dt-button:active:not(.disabled),
+div.dt-button-collection a.dt-button.active:not(.disabled) {
+    background-color: #dadada;
+    /* Fallback */
+    background-image: -webkit-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
+    /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
+    /* FF3.6 */
+    background-image: -ms-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
+    /* IE10 */
+    background-image: -o-linear-gradient(top, #f0f0f0 0%, #dadada 100%);
+    /* Opera 11.10+ */
+    background-image: linear-gradient(to bottom, #f0f0f0 0%, #dadada 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f0f0f0', EndColorStr='#dadada');
+    box-shadow: inset 1px 1px 3px #666;
+}
+div.dt-button-collection.fixed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -75px;
+    border-radius: 0;
+}
+div.dt-button-collection.fixed.two-column {
+    margin-left: -200px;
+}
+div.dt-button-collection.fixed.three-column {
+    margin-left: -225px;
+}
+div.dt-button-collection.fixed.four-column {
+    margin-left: -300px;
+}
+div.dt-button-collection > :last-child {
+    display: block !important;
+    -webkit-column-gap: 8px;
+    -moz-column-gap: 8px;
+    -ms-column-gap: 8px;
+    -o-column-gap: 8px;
+    column-gap: 8px;
+}
+div.dt-button-collection > :last-child > * {
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+}
+div.dt-button-collection.two-column {
+    width: 400px;
+}
+div.dt-button-collection.two-column > :last-child {
+    padding-bottom: 1px;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -ms-column-count: 2;
+    -o-column-count: 2;
+    column-count: 2;
+}
+div.dt-button-collection.three-column {
+    width: 450px;
+}
+div.dt-button-collection.three-column > :last-child {
+    padding-bottom: 1px;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    -ms-column-count: 3;
+    -o-column-count: 3;
+    column-count: 3;
+}
+div.dt-button-collection.four-column {
+    width: 600px;
+}
+div.dt-button-collection.four-column > :last-child {
+    padding-bottom: 1px;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    -ms-column-count: 4;
+    -o-column-count: 4;
+    column-count: 4;
+}
+div.dt-button-collection .dt-button {
+    border-radius: 0;
+}
+
+div.dt-button-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: white;
+    border: 2px solid #111;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    text-align: center;
+    z-index: 21;
+}
+div.dt-button-info h2 {
+    padding: 0.5em;
+    margin: 0;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+    background-color: #f3f3f3;
+}
+div.dt-button-info > div {
+    padding: 1em;
+}
+
+div.dt-button-collection-title {
+    text-align: center;
+    padding: 0.3em 0 0.5em;
+    font-size: 0.9em;
+}
+
+div.dt-button-collection-title:empty {
+    display: none;
+}
+
+.divButtonPrintPage {
+    position: absolute;
+    width: 100px;
+    right: 12px;
+    height: auto;
+    z-index: 999;
+}
+
+#buttonPrintPage {
+    background: #fff;
+    color: #000;
+    border: none;
+    margin-bottom: 3px;
+    width: 100px;
+    transition: .2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+
+@media print {
+    button.dt-button {
+        display: none;
+    }
+
+    .custom-export-buttons,
+    #parameterList {
+        display: none!important;
+    }
+
+    table {
+        margin: 5px 0px;
+        width: 100% !important;
+    }
+
+    table > thead > tr > th,
+    table > tbody > tr > td {
+        padding: 3px !important;
+        display: table-cell !important;
+        vertical-align: middle !important;
+        border: 1px solid #ccc;
+    }
+
+    table > thead > tr > th {
+        font-weight: 500 !important;
+    }
+
+    body {
+        font-size: 10px !important;
+        background: #fff!important;
+    }
+
+    #mainVueApplication > div.content-wrapper.cw-print {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+        margin-top: 50px!important;
+        background: white;
+    }
+}
+
+.custom-export-buttons {
+    background: #fff;
+    color: #000;
+    border: none;
+    margin-bottom: 3px;
+    width: 100px;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}

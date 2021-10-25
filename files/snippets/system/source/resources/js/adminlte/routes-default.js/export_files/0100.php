@@ -1,0 +1,5 @@
+	"/adminlteadvied_importtemplate/:id": AdminLTEAdvancedImportExportDataImportTemplate,
+    "/adminlteadvied_exporttemplate/:id": AdminLTEAdvancedImportExportDataExportTemplate,
+    "/adminlteadvied_import": AdminLTEAdvancedImportExportDataImport,
+    "/adminlteadvied_export": AdminLTEAdvancedImportExportDataExport,
+    "/adminlteadvied_exportpage/:id": AdminLTEAdvancedImportExportDataExportPage,
