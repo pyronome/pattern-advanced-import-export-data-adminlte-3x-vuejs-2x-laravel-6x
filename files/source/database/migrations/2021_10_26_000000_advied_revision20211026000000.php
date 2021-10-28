@@ -950,7 +950,7 @@ class ADVIEDRevision20211026000000 extends Migration
         array_push($menu, $menu_item);
 
         $adminLTE = new AdminLTE();
-        $adminLTE->setupAdminLTEMenu($menu);
+        $adminLTE->updateAdminLTEMenu($menu);
 
         /* {{@snippet:end_up_method}} */
     }
