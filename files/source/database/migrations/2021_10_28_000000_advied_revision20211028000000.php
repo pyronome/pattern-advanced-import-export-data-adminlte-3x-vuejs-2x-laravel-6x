@@ -7,7 +7,7 @@ use App\AdminLTE\AdminLTE;
 
 /* {{@snippet:begin_class}} */
 
-class ADVIEDRevision20211026000000 extends Migration
+class ADVIEDRevision20211028000000 extends Migration
 {
 
     /* {{@snippet:begin_properties}} */
