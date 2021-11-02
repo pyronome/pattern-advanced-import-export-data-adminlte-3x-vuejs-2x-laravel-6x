@@ -1,4 +1,4 @@
-$menu_item = [];
+        $menu_item = [];
         $menu_item['text'] = 'Advanced';
         $menu_item['href'] = '__advanced_plugin';
         $menu_item['icon'] = 'fas fa-ad';
