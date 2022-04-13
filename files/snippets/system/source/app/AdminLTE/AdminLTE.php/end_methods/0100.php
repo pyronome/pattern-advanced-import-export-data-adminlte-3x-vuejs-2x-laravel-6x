@@ -1,29 +1,31 @@
-    public function getAdviedPermissionConfig() {
-		$permission_items = [];
-
-		$index = 0;
-        $permission_items[$index]['meta_key'] = '__advied_permissions';
-        $permission_items[$index]['title'] = __('Advanced Import Export Data');
-		
-		$item_index = 0;
-        $permission_items[$index]['items'][$item_index]['value'] = 'advied_admin';
-        $permission_items[$index]['items'][$item_index]['title'] = 'Admin';
-		
-		return $permission_items;
-	}
-
-	public function isAdviedAdmin($token) {
+    // Advanced Import/Export Plugin
+    public function hasAdviedPermission($token) {
         if (Gate::allows('isAdmin'))
         {
             return true;
         }
         
-        $userPermissions = $this->getUserPermissionData();
+        $plugin_permissions = $this->getUserPluginsPermissions();
 		$has_permission = false;
 
-        if (isset($userPermissions['__advied_permissions']) && isset($userPermissions['__advied_permissions'][$token])) {
-            $has_permission = ('Y' == $userPermissions['__advied_permissions'][$token]);
-        }
+		if (isset($plugin_permissions['__advied_permissions'])) {
+			$__advied_permissions = $plugin_permissions['__advied_permissions'];
+
+			if (isset($__advied_permissions['is_admin'])) {
+				if (1 == intval($__advied_permissions['is_admin'])) {
+					$has_permission = true;
+				}
+			}
+			
+			if (!$has_permission) {
+				if (isset($__advied_permissions[$token])) {
+					if (1 == intval($__advied_permissions[$token])) {
+						$has_permission = true;
+					}
+				}
+			}
+		}
 
         return $has_permission;
     }
+    // Advanced Import/Export Plugin

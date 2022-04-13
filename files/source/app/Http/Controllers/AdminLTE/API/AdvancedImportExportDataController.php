@@ -32,7 +32,7 @@ class AdvancedImportExportDataController extends Controller
         $data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if ($advied_admin) {
             $object = Template::where('id', $id)->first();
@@ -66,7 +66,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -100,7 +100,7 @@ class AdvancedImportExportDataController extends Controller
                 : 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         $objectList = Template::where('type', $type)
             ->orderBy('title', 'asc')
@@ -140,7 +140,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         $id = intval($request->input('id'));
 
@@ -198,7 +198,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if (!$advied_admin) {
             $return_data['id'] = 1;
@@ -233,7 +233,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -264,7 +264,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         $id = intval($request->input('id'));
 
@@ -371,7 +371,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if (!$advied_admin) {
             $return_data['id'] = 1;
@@ -428,7 +428,7 @@ class AdvancedImportExportDataController extends Controller
     public function get_database_option_list(Request $request) 
     {    
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         $objectList = Database::where('deleted', 0)
             ->orderBy('title', 'asc')
@@ -483,7 +483,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -620,7 +620,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         $id = intval($request->input('id'));
 
@@ -681,7 +681,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if (!$advied_admin) {
             $return_data['id'] = 1;
@@ -721,7 +721,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -756,7 +756,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         $id = intval($request->input('id'));
 
@@ -816,7 +816,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if (!$advied_admin) {
             $return_data['id'] = 1;
@@ -856,7 +856,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -892,7 +892,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         $id = intval($request->input('id'));
 
@@ -955,7 +955,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if (!$advied_admin) {
             $return_data['id'] = 1;
@@ -1100,7 +1100,7 @@ class AdvancedImportExportDataController extends Controller
         $index = 0;
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         foreach ($objectList as $object)
         {
@@ -1139,7 +1139,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
         
         $id = intval($request->input('id'));
 
@@ -1202,7 +1202,7 @@ class AdvancedImportExportDataController extends Controller
         $return_data = [];
 
         $objectAdminLTE = new AdminLTE();
-        $advied_admin = $objectAdminLTE->isAdviedAdmin('advied_admin');
+        $advied_admin = $objectAdminLTE->hasAdviedPermission('advied_admin');
 
         if (!$advied_admin) {
             $return_data['id'] = 1;
