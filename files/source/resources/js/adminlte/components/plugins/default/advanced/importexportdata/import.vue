@@ -149,7 +149,7 @@
                             <div class="col-md-12">
                                 <button
                                     @click="saveTemplate"
-                                    menu-permission-token="adminlteadvied_"
+                                    menu-permission-token="wisiloadvied_"
                                     advied-permission-token="create_import_template"
                                     :disabled="TemplateForm.busy"
                                     type="button"
@@ -225,7 +225,7 @@ export default {
                 is_templatelist_loading: false,
                 is_templatelist_loaded: false,
                 external_files: [
-                    ("/js/adminlte/xlsx/xlsx.full.min.js"),
+                    ("/js/wisilo/xlsx/xlsx.full.min.js"),
                 ],
             }
         };
@@ -281,7 +281,7 @@ export default {
         saveTemplate: function () {
             var self = this;
             self.$Progress.start();
-            self.TemplateForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_template"))
+            self.TemplateForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_template"))
                 .then(({ data }) => {
                 self.$Progress.finish();
                 self.TemplateForm.id = data.id;
@@ -309,7 +309,7 @@ export default {
                                 timerProgressBar: true,
                                 onClose: () => {
                                     $('#modal-editTemplate').modal("hide");
-                                    self.$router.push('/' + self.main_folder + '/adminlteadvied_importtemplate/' + self.TemplateForm.id);
+                                    self.$router.push('/' + self.main_folder + '/wisiloadvied_importtemplate/' + self.TemplateForm.id);
                                 }
                             });
                         } else {
@@ -367,7 +367,7 @@ export default {
 
             self.page.is_variables_loading = true;
 
-            axios.get(AdminLTEHelper.getAPIURL("adminlte/get_page_variables/adminlteadvied_import"))
+            axios.get(WisiloHelper.getAPIURL("wisilo/get_page_variables/wisiloadvied_import"))
                 .then(({ data }) => {
                     self.page.is_variables_loaded = true;
                     self.page.is_variables_loading = false;
@@ -379,8 +379,8 @@ export default {
                     self.page.has_server_error = true;
                     self.processLoadQueue();
                 }).finally(function() {
-                    AdminLTEHelper.initializePermissions(self.page.variables, false);
-                    self.page.authorization = AdminLTEHelper.hasUserADVIEDAuthorized(self.page.variables, "import");
+                    WisiloHelper.initializePermissions(self.page.variables, false);
+                    self.page.authorization = WisiloHelper.hasUserADVIEDAuthorized(self.page.variables, "import");
                     self.processLoadQueue();
                 });
         },
@@ -391,7 +391,7 @@ export default {
 
             this.page.is_templatelist_loading = true;
             
-            axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_template_option_list/0"))
+            axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_template_option_list/0"))
                 .then(({ data }) => {
                     this.page.is_templatelist_loaded = true;
                     this.page.is_templatelist_loading = false;
@@ -410,7 +410,7 @@ export default {
             self.ImportForm.import_data = self.data;
 
             self.$Progress.start();
-            self.ImportForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_import_form"))
+            self.ImportForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_import_form"))
                 .then(({ data }) => {
                     self.$Progress.finish();
                     self.id = data.id;
@@ -437,7 +437,7 @@ export default {
                                 timer: 2000,
                                 timerProgressBar: true,
                                 onClose: () => {
-                                    self.$router.push('/' + self.main_folder + '/adminlteadvied_import');
+                                    self.$router.push('/' + self.main_folder + '/wisiloadvied_import');
                                 }
                             });
                         } else {
@@ -461,7 +461,7 @@ export default {
             }
 
             this.template_editable = true;
-            this.templateURL = '/' + this.main_folder + '/adminlteadvied_importtemplate/' + template_id;
+            this.templateURL = '/' + this.main_folder + '/wisiloadvied_importtemplate/' + template_id;
 
             var object = this.getTemplateById(template_id);
 
@@ -482,9 +482,9 @@ export default {
         },
     },
     mounted() {
-        this.main_folder = AdminLTEHelper.getMainFolder();
+        this.main_folder = WisiloHelper.getMainFolder();
         this.body_loader_active = true;
-        AdminLTEHelper.loadExternalFiles(this.page.external_files, this.processLoadQueue());
+        WisiloHelper.loadExternalFiles(this.page.external_files, this.processLoadQueue());
     }
 }
 </script>

@@ -1,0 +1,5 @@
+	"/wisiloadvied_importtemplate/:id": WisiloAdvancedImportExportDataImportTemplate,
+    "/wisiloadvied_exporttemplate/:id": WisiloAdvancedImportExportDataExportTemplate,
+    "/wisiloadvied_import": WisiloAdvancedImportExportDataImport,
+    "/wisiloadvied_export": WisiloAdvancedImportExportDataExport,
+    "/wisiloadvied_exportpage/:id": WisiloAdvancedImportExportDataExportPage,

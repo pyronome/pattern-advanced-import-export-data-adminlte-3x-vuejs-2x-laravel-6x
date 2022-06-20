@@ -293,7 +293,7 @@ export default {
         saveTemplate: function () {
             var self = this;
             self.$Progress.start();
-            self.TemplateForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_template"))
+            self.TemplateForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_template"))
                 .then(({ data }) => {
                 self.$Progress.finish();
                 self.TemplateForm.id = data.id;
@@ -321,7 +321,7 @@ export default {
                                 timerProgressBar: true,
                                 onClose: () => {
                                     $('#modal-editTemplate').modal("hide");
-                                    self.$router.push('/' + self.main_folder + '/adminlteadvied_exporttemplate/' + self.TemplateForm.id);
+                                    self.$router.push('/' + self.main_folder + '/wisiloadvied_exporttemplate/' + self.TemplateForm.id);
                                 }
                             });
                         } else {
@@ -379,7 +379,7 @@ export default {
 
             self.page.is_variables_loading = true;
 
-            axios.get(AdminLTEHelper.getAPIURL("adminlte/get_page_variables/adminlteadvied_export"))
+            axios.get(WisiloHelper.getAPIURL("wisilo/get_page_variables/wisiloadvied_export"))
                 .then(({ data }) => {
                     self.page.is_variables_loaded = true;
                     self.page.is_variables_loading = false;
@@ -391,14 +391,14 @@ export default {
                     self.page.has_server_error = true;
                     self.processLoadQueue();
                 }).finally(function() {
-                    AdminLTEHelper.initializePermissions(self.page.variables, false);
-                    self.page.authorization = AdminLTEHelper.hasUserADVIEDAuthorized(self.page.variables, "export");
+                    WisiloHelper.initializePermissions(self.page.variables, false);
+                    self.page.authorization = WisiloHelper.hasUserADVIEDAuthorized(self.page.variables, "export");
                     self.processLoadQueue();
                 });
         },
         load_parameters: function (template_id) {
             var self = this;
-            axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_parameterlist/" + template_id))
+            axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_parameterlist/" + template_id))
                 .then(({ data }) => {
                     self.template_parameter_list = data.list;
                 }).catch(({ data }) => {
@@ -414,7 +414,7 @@ export default {
 
             this.page.is_templatelist_loading = true;
             
-            axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_template_option_list/1"))
+            axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_template_option_list/1"))
                 .then(({ data }) => {
                     this.page.is_templatelist_loaded = true;
                     this.page.is_templatelist_loading = false;
@@ -433,7 +433,7 @@ export default {
             self.ExportForm.parameters = self.collectExportParameters();
 
             self.$Progress.start();
-            self.ExportForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_export_form"))
+            self.ExportForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_export_form"))
                 .then(({ data }) => {
                     self.$Progress.finish();
                     self.page.has_post_error = data.has_error;
@@ -459,7 +459,7 @@ export default {
                                 timer: 2000,
                                 timerProgressBar: true,
                                 onClose: () => {
-                                    self.$router.push('/' + self.main_folder + '/adminlteadvied_exportpage/' + self.ExportForm.template_id);
+                                    self.$router.push('/' + self.main_folder + '/wisiloadvied_exportpage/' + self.ExportForm.template_id);
                                 }
                             });
                         } else {
@@ -481,7 +481,7 @@ export default {
             }
 
             this.template_editable = true;
-            this.templateURL = '/' + this.main_folder + '/adminlteadvied_exporttemplate/' + template_id;
+            this.templateURL = '/' + this.main_folder + '/wisiloadvied_exporttemplate/' + template_id;
 
             document.getElementById("formExportInputs").style.display = "none";
             this.load_parameters(template_id);
@@ -602,7 +602,7 @@ export default {
         }
     },
     mounted() {
-        this.main_folder = AdminLTEHelper.getMainFolder();
+        this.main_folder = WisiloHelper.getMainFolder();
         this.body_loader_active = true;
         this.processLoadQueue();
     }

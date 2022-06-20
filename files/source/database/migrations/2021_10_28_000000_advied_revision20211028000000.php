@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use App\AdminLTE\AdminLTE;
+use App\Wisilo\Wisilo;
 
 /* {{@snippet:begin_class}} */
 
@@ -25,9 +25,9 @@ class ADVIEDRevision20211028000000 extends Migration
     {
         /* {{@snippet:begin_up_method}} */
 
-        /* {{@snippet:begin_adminlteadviedlookuptable_migration}} */        
-        if (!Schema::hasTable('adminlteadviedlookuptable')) {
-            Schema::create('adminlteadviedlookuptable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadviedlookuptable_migration}} */        
+        if (!Schema::hasTable('wisiloadviedlookuptable')) {
+            Schema::create('wisiloadviedlookuptable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -40,7 +40,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->string('value3')->nullable();
             });
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 1,
                     'deleted' => 0,
@@ -56,7 +56,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 2,
                     'deleted' => 0,
@@ -72,7 +72,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 3,
                     'deleted' => 0,
@@ -88,7 +88,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 4,
                     'deleted' => 0,
@@ -104,7 +104,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 5,
                     'deleted' => 0,
@@ -120,7 +120,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 6,
                     'deleted' => 0,
@@ -136,7 +136,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 7,
                     'deleted' => 0,
@@ -152,7 +152,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 8,
                     'deleted' => 0,
@@ -168,7 +168,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 9,
                     'deleted' => 0,
@@ -184,7 +184,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 10,
                     'deleted' => 0,
@@ -200,7 +200,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 11,
                     'deleted' => 0,
@@ -216,7 +216,7 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
 
-            DB::table('adminlteadviedlookuptable')->insert(
+            DB::table('wisiloadviedlookuptable')->insert(
                 array(
                     'id' => 12,
                     'deleted' => 0,
@@ -232,99 +232,99 @@ class ADVIEDRevision20211028000000 extends Migration
                 )
             );
         } else {
-            Schema::table('adminlteadviedlookuptable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadviedlookuptable');
+            Schema::table('wisiloadviedlookuptable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadviedlookuptable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'enabled')) {                    
-                    if (in_array('adminlteadviedlookuptable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable_enabled_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'enabled')) {                    
+                    if (in_array('wisiloadviedlookuptable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable_enabled_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', '__order')) {                    
-                    if (in_array('adminlteadviedlookuptable___order_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable___order_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable___order_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', '__order')) {                    
+                    if (in_array('wisiloadviedlookuptable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable___order_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable___order_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'group')) {                    
-                    if (in_array('adminlteadviedlookuptable_group_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable_group_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable_group_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'group')) {                    
+                    if (in_array('wisiloadviedlookuptable_group_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable_group_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable_group_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'title')) {                    
-                    if (in_array('adminlteadviedlookuptable_title_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable_title_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable_title_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'title')) {                    
+                    if (in_array('wisiloadviedlookuptable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable_title_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'value1')) {                    
-                    if (in_array('adminlteadviedlookuptable_value1_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable_value1_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable_value1_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'value1')) {                    
+                    if (in_array('wisiloadviedlookuptable_value1_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable_value1_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable_value1_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'value2')) {                    
-                    if (in_array('adminlteadviedlookuptable_value2_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable_value2_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable_value2_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'value2')) {                    
+                    if (in_array('wisiloadviedlookuptable_value2_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable_value2_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable_value2_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'value3')) {                    
-                    if (in_array('adminlteadviedlookuptable_value3_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedlookuptable_value3_foreign');
-                        $table->dropIndex('adminlteadviedlookuptable_value3_foreign');
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'value3')) {                    
+                    if (in_array('wisiloadviedlookuptable_value3_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedlookuptable_value3_foreign');
+                        $table->dropIndex('wisiloadviedlookuptable_value3_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadviedlookuptable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'enabled')) { 
+            Schema::table('wisiloadviedlookuptable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', '__order')) { 
+                if (Schema::hasColumn('wisiloadviedlookuptable', '__order')) { 
                     $table->bigInteger('__order')->default(0)->change();
                 } else {
                     $table->bigInteger('__order')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'group')) { 
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'group')) { 
                     $table->string('group')->nullable()->change();
                 } else {
                     $table->string('group')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'title')) { 
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'title')) { 
                     $table->string('title')->nullable()->change();
                 } else {
                     $table->string('title')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'value1')) { 
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'value1')) { 
                     $table->string('value1')->nullable()->change();
                 } else {
                     $table->string('value1')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'value2')) { 
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'value2')) { 
                     $table->string('value2')->nullable()->change();
                 } else {
                     $table->string('value2')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedlookuptable', 'value3')) { 
+                if (Schema::hasColumn('wisiloadviedlookuptable', 'value3')) { 
                     $table->string('value3')->nullable()->change();
                 } else {
                     $table->string('value3')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadviedlookuptable')) {
+        } // if (!Schema::hasTable('wisiloadviedlookuptable')) {
 
-        /* {{@snippet:end_adminlteadviedlookuptable_migration}} */
+        /* {{@snippet:end_wisiloadviedlookuptable_migration}} */
 
-        /* {{@snippet:begin_adminlteadvieddatabasetable_migration}} */        
-        if (!Schema::hasTable('adminlteadvieddatabasetable')) {
-            Schema::create('adminlteadvieddatabasetable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadvieddatabasetable_migration}} */        
+        if (!Schema::hasTable('wisiloadvieddatabasetable')) {
+            Schema::create('wisiloadvieddatabasetable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -337,99 +337,99 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->bigInteger('port')->default(0);
             });
         } else {
-            Schema::table('adminlteadvieddatabasetable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadvieddatabasetable');
+            Schema::table('wisiloadvieddatabasetable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadvieddatabasetable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'enabled')) {                    
-                    if (in_array('adminlteadvieddatabasetable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_enabled_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'enabled')) {                    
+                    if (in_array('wisiloadvieddatabasetable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_enabled_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'title')) {                    
-                    if (in_array('adminlteadvieddatabasetable_title_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_title_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_title_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'title')) {                    
+                    if (in_array('wisiloadvieddatabasetable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_title_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'host')) {                    
-                    if (in_array('adminlteadvieddatabasetable_host_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_host_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_host_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'host')) {                    
+                    if (in_array('wisiloadvieddatabasetable_host_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_host_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_host_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'database_name')) {                    
-                    if (in_array('adminlteadvieddatabasetable_database_name_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_database_name_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_database_name_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'database_name')) {                    
+                    if (in_array('wisiloadvieddatabasetable_database_name_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_database_name_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_database_name_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'username')) {                    
-                    if (in_array('adminlteadvieddatabasetable_username_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_username_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_username_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'username')) {                    
+                    if (in_array('wisiloadvieddatabasetable_username_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_username_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_username_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'password')) {                    
-                    if (in_array('adminlteadvieddatabasetable_password_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_password_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_password_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'password')) {                    
+                    if (in_array('wisiloadvieddatabasetable_password_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_password_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_password_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'port')) {                    
-                    if (in_array('adminlteadvieddatabasetable_port_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadvieddatabasetable_port_foreign');
-                        $table->dropIndex('adminlteadvieddatabasetable_port_foreign');
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'port')) {                    
+                    if (in_array('wisiloadvieddatabasetable_port_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadvieddatabasetable_port_foreign');
+                        $table->dropIndex('wisiloadvieddatabasetable_port_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadvieddatabasetable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'enabled')) { 
+            Schema::table('wisiloadvieddatabasetable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'title')) { 
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'title')) { 
                     $table->string('title')->nullable()->change();
                 } else {
                     $table->string('title')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'host')) { 
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'host')) { 
                     $table->string('host')->nullable()->change();
                 } else {
                     $table->string('host')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'database_name')) { 
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'database_name')) { 
                     $table->string('database_name')->nullable()->change();
                 } else {
                     $table->string('database_name')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'username')) { 
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'username')) { 
                     $table->string('username')->nullable()->change();
                 } else {
                     $table->string('username')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'password')) { 
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'password')) { 
                     $table->longText('password')->nullable()->change();
                 } else {
                     $table->longText('password')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadvieddatabasetable', 'port')) { 
+                if (Schema::hasColumn('wisiloadvieddatabasetable', 'port')) { 
                     $table->bigInteger('port')->default(0)->change();
                 } else {
                     $table->bigInteger('port')->default(0);
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadvieddatabasetable')) {
+        } // if (!Schema::hasTable('wisiloadvieddatabasetable')) {
 
-        /* {{@snippet:end_adminlteadvieddatabasetable_migration}} */
+        /* {{@snippet:end_wisiloadvieddatabasetable_migration}} */
 
-        /* {{@snippet:begin_adminlteadviedtemplatetable_migration}} */        
-        if (!Schema::hasTable('adminlteadviedtemplatetable')) {
-            Schema::create('adminlteadviedtemplatetable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadviedtemplatetable_migration}} */        
+        if (!Schema::hasTable('wisiloadviedtemplatetable')) {
+            Schema::create('wisiloadviedtemplatetable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -439,66 +439,66 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->longText('description')->nullable();
             });
         } else {
-            Schema::table('adminlteadviedtemplatetable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadviedtemplatetable');
+            Schema::table('wisiloadviedtemplatetable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadviedtemplatetable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'enabled')) {                    
-                    if (in_array('adminlteadviedtemplatetable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedtemplatetable_enabled_foreign');
-                        $table->dropIndex('adminlteadviedtemplatetable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'enabled')) {                    
+                    if (in_array('wisiloadviedtemplatetable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedtemplatetable_enabled_foreign');
+                        $table->dropIndex('wisiloadviedtemplatetable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'type')) {                    
-                    if (in_array('adminlteadviedtemplatetable_type_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedtemplatetable_type_foreign');
-                        $table->dropIndex('adminlteadviedtemplatetable_type_foreign');
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'type')) {                    
+                    if (in_array('wisiloadviedtemplatetable_type_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedtemplatetable_type_foreign');
+                        $table->dropIndex('wisiloadviedtemplatetable_type_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'title')) {                    
-                    if (in_array('adminlteadviedtemplatetable_title_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedtemplatetable_title_foreign');
-                        $table->dropIndex('adminlteadviedtemplatetable_title_foreign');
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'title')) {                    
+                    if (in_array('wisiloadviedtemplatetable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedtemplatetable_title_foreign');
+                        $table->dropIndex('wisiloadviedtemplatetable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'description')) {                    
-                    if (in_array('adminlteadviedtemplatetable_description_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedtemplatetable_description_foreign');
-                        $table->dropIndex('adminlteadviedtemplatetable_description_foreign');
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'description')) {                    
+                    if (in_array('wisiloadviedtemplatetable_description_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedtemplatetable_description_foreign');
+                        $table->dropIndex('wisiloadviedtemplatetable_description_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadviedtemplatetable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'enabled')) { 
+            Schema::table('wisiloadviedtemplatetable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'type')) { 
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'type')) { 
                     $table->smallInteger('type')->default(0)->change();
                 } else {
                     $table->smallInteger('type')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'title')) { 
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'title')) { 
                     $table->string('title')->nullable()->change();
                 } else {
                     $table->string('title')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedtemplatetable', 'description')) { 
+                if (Schema::hasColumn('wisiloadviedtemplatetable', 'description')) { 
                     $table->longText('description')->nullable()->change();
                 } else {
                     $table->longText('description')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadviedtemplatetable')) {
+        } // if (!Schema::hasTable('wisiloadviedtemplatetable')) {
 
-        /* {{@snippet:end_adminlteadviedtemplatetable_migration}} */
+        /* {{@snippet:end_wisiloadviedtemplatetable_migration}} */
 
-        /* {{@snippet:begin_adminlteadviedquerytable_migration}} */        
-        if (!Schema::hasTable('adminlteadviedquerytable')) {
-            Schema::create('adminlteadviedquerytable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadviedquerytable_migration}} */        
+        if (!Schema::hasTable('wisiloadviedquerytable')) {
+            Schema::create('wisiloadviedquerytable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -508,66 +508,66 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->longText('query')->nullable();
             });
         } else {
-            Schema::table('adminlteadviedquerytable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadviedquerytable');
+            Schema::table('wisiloadviedquerytable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadviedquerytable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadviedquerytable', 'enabled')) {                    
-                    if (in_array('adminlteadviedquerytable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedquerytable_enabled_foreign');
-                        $table->dropIndex('adminlteadviedquerytable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadviedquerytable', 'enabled')) {                    
+                    if (in_array('wisiloadviedquerytable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedquerytable_enabled_foreign');
+                        $table->dropIndex('wisiloadviedquerytable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedquerytable', '__order')) {                    
-                    if (in_array('adminlteadviedquerytable___order_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedquerytable___order_foreign');
-                        $table->dropIndex('adminlteadviedquerytable___order_foreign');
+                if (Schema::hasColumn('wisiloadviedquerytable', '__order')) {                    
+                    if (in_array('wisiloadviedquerytable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedquerytable___order_foreign');
+                        $table->dropIndex('wisiloadviedquerytable___order_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedquerytable', 'condition')) {                    
-                    if (in_array('adminlteadviedquerytable_condition_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedquerytable_condition_foreign');
-                        $table->dropIndex('adminlteadviedquerytable_condition_foreign');
+                if (Schema::hasColumn('wisiloadviedquerytable', 'condition')) {                    
+                    if (in_array('wisiloadviedquerytable_condition_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedquerytable_condition_foreign');
+                        $table->dropIndex('wisiloadviedquerytable_condition_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedquerytable', 'query')) {                    
-                    if (in_array('adminlteadviedquerytable_query_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedquerytable_query_foreign');
-                        $table->dropIndex('adminlteadviedquerytable_query_foreign');
+                if (Schema::hasColumn('wisiloadviedquerytable', 'query')) {                    
+                    if (in_array('wisiloadviedquerytable_query_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedquerytable_query_foreign');
+                        $table->dropIndex('wisiloadviedquerytable_query_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadviedquerytable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadviedquerytable', 'enabled')) { 
+            Schema::table('wisiloadviedquerytable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadviedquerytable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedquerytable', '__order')) { 
+                if (Schema::hasColumn('wisiloadviedquerytable', '__order')) { 
                     $table->bigInteger('__order')->default(0)->change();
                 } else {
                     $table->bigInteger('__order')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedquerytable', 'condition')) { 
+                if (Schema::hasColumn('wisiloadviedquerytable', 'condition')) { 
                     $table->longText('condition')->nullable()->change();
                 } else {
                     $table->longText('condition')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedquerytable', 'query')) { 
+                if (Schema::hasColumn('wisiloadviedquerytable', 'query')) { 
                     $table->longText('query')->nullable()->change();
                 } else {
                     $table->longText('query')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadviedquerytable')) {
+        } // if (!Schema::hasTable('wisiloadviedquerytable')) {
 
-        /* {{@snippet:end_adminlteadviedquerytable_migration}} */
+        /* {{@snippet:end_wisiloadviedquerytable_migration}} */
 
-        /* {{@snippet:begin_adminlteadviedactiontable_migration}} */        
-        if (!Schema::hasTable('adminlteadviedactiontable')) {
-            Schema::create('adminlteadviedactiontable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadviedactiontable_migration}} */        
+        if (!Schema::hasTable('wisiloadviedactiontable')) {
+            Schema::create('wisiloadviedactiontable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -578,77 +578,77 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->longText('operation')->nullable();
             });
         } else {
-            Schema::table('adminlteadviedactiontable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadviedactiontable');
+            Schema::table('wisiloadviedactiontable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadviedactiontable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadviedactiontable', 'enabled')) {                    
-                    if (in_array('adminlteadviedactiontable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedactiontable_enabled_foreign');
-                        $table->dropIndex('adminlteadviedactiontable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadviedactiontable', 'enabled')) {                    
+                    if (in_array('wisiloadviedactiontable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedactiontable_enabled_foreign');
+                        $table->dropIndex('wisiloadviedactiontable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', '__order')) {                    
-                    if (in_array('adminlteadviedactiontable___order_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedactiontable___order_foreign');
-                        $table->dropIndex('adminlteadviedactiontable___order_foreign');
+                if (Schema::hasColumn('wisiloadviedactiontable', '__order')) {                    
+                    if (in_array('wisiloadviedactiontable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedactiontable___order_foreign');
+                        $table->dropIndex('wisiloadviedactiontable___order_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', 'title')) {                    
-                    if (in_array('adminlteadviedactiontable_title_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedactiontable_title_foreign');
-                        $table->dropIndex('adminlteadviedactiontable_title_foreign');
+                if (Schema::hasColumn('wisiloadviedactiontable', 'title')) {                    
+                    if (in_array('wisiloadviedactiontable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedactiontable_title_foreign');
+                        $table->dropIndex('wisiloadviedactiontable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', 'condition')) {                    
-                    if (in_array('adminlteadviedactiontable_condition_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedactiontable_condition_foreign');
-                        $table->dropIndex('adminlteadviedactiontable_condition_foreign');
+                if (Schema::hasColumn('wisiloadviedactiontable', 'condition')) {                    
+                    if (in_array('wisiloadviedactiontable_condition_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedactiontable_condition_foreign');
+                        $table->dropIndex('wisiloadviedactiontable_condition_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', 'operation')) {                    
-                    if (in_array('adminlteadviedactiontable_operation_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedactiontable_operation_foreign');
-                        $table->dropIndex('adminlteadviedactiontable_operation_foreign');
+                if (Schema::hasColumn('wisiloadviedactiontable', 'operation')) {                    
+                    if (in_array('wisiloadviedactiontable_operation_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedactiontable_operation_foreign');
+                        $table->dropIndex('wisiloadviedactiontable_operation_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadviedactiontable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadviedactiontable', 'enabled')) { 
+            Schema::table('wisiloadviedactiontable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadviedactiontable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', '__order')) { 
+                if (Schema::hasColumn('wisiloadviedactiontable', '__order')) { 
                     $table->bigInteger('__order')->default(0)->change();
                 } else {
                     $table->bigInteger('__order')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', 'title')) { 
+                if (Schema::hasColumn('wisiloadviedactiontable', 'title')) { 
                     $table->string('title')->nullable()->change();
                 } else {
                     $table->string('title')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', 'condition')) { 
+                if (Schema::hasColumn('wisiloadviedactiontable', 'condition')) { 
                     $table->longText('condition')->nullable()->change();
                 } else {
                     $table->longText('condition')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedactiontable', 'operation')) { 
+                if (Schema::hasColumn('wisiloadviedactiontable', 'operation')) { 
                     $table->longText('operation')->nullable()->change();
                 } else {
                     $table->longText('operation')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadviedactiontable')) {
+        } // if (!Schema::hasTable('wisiloadviedactiontable')) {
 
-        /* {{@snippet:end_adminlteadviedactiontable_migration}} */
+        /* {{@snippet:end_wisiloadviedactiontable_migration}} */
 
-        /* {{@snippet:begin_adminlteadviedparametertable_migration}} */        
-        if (!Schema::hasTable('adminlteadviedparametertable')) {
-            Schema::create('adminlteadviedparametertable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadviedparametertable_migration}} */        
+        if (!Schema::hasTable('wisiloadviedparametertable')) {
+            Schema::create('wisiloadviedparametertable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -662,110 +662,110 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->longText('default')->nullable();
             });
         } else {
-            Schema::table('adminlteadviedparametertable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadviedparametertable');
+            Schema::table('wisiloadviedparametertable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadviedparametertable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadviedparametertable', 'enabled')) {                    
-                    if (in_array('adminlteadviedparametertable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_enabled_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'enabled')) {                    
+                    if (in_array('wisiloadviedparametertable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_enabled_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', '__order')) {                    
-                    if (in_array('adminlteadviedparametertable___order_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable___order_foreign');
-                        $table->dropIndex('adminlteadviedparametertable___order_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', '__order')) {                    
+                    if (in_array('wisiloadviedparametertable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable___order_foreign');
+                        $table->dropIndex('wisiloadviedparametertable___order_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'title')) {                    
-                    if (in_array('adminlteadviedparametertable_title_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_title_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_title_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'title')) {                    
+                    if (in_array('wisiloadviedparametertable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_title_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'name')) {                    
-                    if (in_array('adminlteadviedparametertable_name_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_name_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_name_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'name')) {                    
+                    if (in_array('wisiloadviedparametertable_name_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_name_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_name_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'type')) {                    
-                    if (in_array('adminlteadviedparametertable_type_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_type_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_type_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'type')) {                    
+                    if (in_array('wisiloadviedparametertable_type_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_type_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_type_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'option_titles')) {                    
-                    if (in_array('adminlteadviedparametertable_option_titles_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_option_titles_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_option_titles_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'option_titles')) {                    
+                    if (in_array('wisiloadviedparametertable_option_titles_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_option_titles_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_option_titles_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'option_values')) {                    
-                    if (in_array('adminlteadviedparametertable_option_values_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_option_values_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_option_values_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'option_values')) {                    
+                    if (in_array('wisiloadviedparametertable_option_values_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_option_values_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_option_values_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'default')) {                    
-                    if (in_array('adminlteadviedparametertable_default_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedparametertable_default_foreign');
-                        $table->dropIndex('adminlteadviedparametertable_default_foreign');
+                if (Schema::hasColumn('wisiloadviedparametertable', 'default')) {                    
+                    if (in_array('wisiloadviedparametertable_default_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedparametertable_default_foreign');
+                        $table->dropIndex('wisiloadviedparametertable_default_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadviedparametertable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadviedparametertable', 'enabled')) { 
+            Schema::table('wisiloadviedparametertable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadviedparametertable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', '__order')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', '__order')) { 
                     $table->bigInteger('__order')->default(0)->change();
                 } else {
                     $table->bigInteger('__order')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'title')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', 'title')) { 
                     $table->string('title')->nullable()->change();
                 } else {
                     $table->string('title')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'name')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', 'name')) { 
                     $table->string('name')->nullable()->change();
                 } else {
                     $table->string('name')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'type')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', 'type')) { 
                     $table->string('type')->nullable()->change();
                 } else {
                     $table->string('type')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'option_titles')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', 'option_titles')) { 
                     $table->longText('option_titles')->nullable()->change();
                 } else {
                     $table->longText('option_titles')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'option_values')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', 'option_values')) { 
                     $table->longText('option_values')->nullable()->change();
                 } else {
                     $table->longText('option_values')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedparametertable', 'default')) { 
+                if (Schema::hasColumn('wisiloadviedparametertable', 'default')) { 
                     $table->longText('default')->nullable()->change();
                 } else {
                     $table->longText('default')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadviedparametertable')) {
+        } // if (!Schema::hasTable('wisiloadviedparametertable')) {
 
-        /* {{@snippet:end_adminlteadviedparametertable_migration}} */
+        /* {{@snippet:end_wisiloadviedparametertable_migration}} */
 
-        /* {{@snippet:begin_adminlteadviedvalidationtable_migration}} */        
-        if (!Schema::hasTable('adminlteadviedvalidationtable')) {
-            Schema::create('adminlteadviedvalidationtable', function (Blueprint $table) {
+        /* {{@snippet:begin_wisiloadviedvalidationtable_migration}} */        
+        if (!Schema::hasTable('wisiloadviedvalidationtable')) {
+            Schema::create('wisiloadviedvalidationtable', function (Blueprint $table) {
                 $table->bigIncrements('id');
                 $table->timestamps();
                 $table->boolean('deleted')->default(0);
@@ -776,150 +776,150 @@ class ADVIEDRevision20211028000000 extends Migration
                 $table->longText('message')->nullable();
             });
         } else {
-            Schema::table('adminlteadviedvalidationtable', function (Blueprint $table) {
-                $foreignKeys = $this->listTableForeignKeys('adminlteadviedvalidationtable');
+            Schema::table('wisiloadviedvalidationtable', function (Blueprint $table) {
+                $foreignKeys = $this->listTableForeignKeys('wisiloadviedvalidationtable');
                 //Schema::disableForeignKeyConstraints();
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'enabled')) {                    
-                    if (in_array('adminlteadviedvalidationtable_enabled_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedvalidationtable_enabled_foreign');
-                        $table->dropIndex('adminlteadviedvalidationtable_enabled_foreign');
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'enabled')) {                    
+                    if (in_array('wisiloadviedvalidationtable_enabled_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedvalidationtable_enabled_foreign');
+                        $table->dropIndex('wisiloadviedvalidationtable_enabled_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', '__order')) {                    
-                    if (in_array('adminlteadviedvalidationtable___order_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedvalidationtable___order_foreign');
-                        $table->dropIndex('adminlteadviedvalidationtable___order_foreign');
+                if (Schema::hasColumn('wisiloadviedvalidationtable', '__order')) {                    
+                    if (in_array('wisiloadviedvalidationtable___order_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedvalidationtable___order_foreign');
+                        $table->dropIndex('wisiloadviedvalidationtable___order_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'title')) {                    
-                    if (in_array('adminlteadviedvalidationtable_title_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedvalidationtable_title_foreign');
-                        $table->dropIndex('adminlteadviedvalidationtable_title_foreign');
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'title')) {                    
+                    if (in_array('wisiloadviedvalidationtable_title_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedvalidationtable_title_foreign');
+                        $table->dropIndex('wisiloadviedvalidationtable_title_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'condition')) {                    
-                    if (in_array('adminlteadviedvalidationtable_condition_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedvalidationtable_condition_foreign');
-                        $table->dropIndex('adminlteadviedvalidationtable_condition_foreign');
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'condition')) {                    
+                    if (in_array('wisiloadviedvalidationtable_condition_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedvalidationtable_condition_foreign');
+                        $table->dropIndex('wisiloadviedvalidationtable_condition_foreign');
                     }
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'message')) {                    
-                    if (in_array('adminlteadviedvalidationtable_message_foreign', $foreignKeys)) {
-                        $table->dropForeign('adminlteadviedvalidationtable_message_foreign');
-                        $table->dropIndex('adminlteadviedvalidationtable_message_foreign');
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'message')) {                    
+                    if (in_array('wisiloadviedvalidationtable_message_foreign', $foreignKeys)) {
+                        $table->dropForeign('wisiloadviedvalidationtable_message_foreign');
+                        $table->dropIndex('wisiloadviedvalidationtable_message_foreign');
                     }
                 }
                 //Schema::enableForeignKeyConstraints();
             });
 
-            Schema::table('adminlteadviedvalidationtable', function (Blueprint $table) {
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'enabled')) { 
+            Schema::table('wisiloadviedvalidationtable', function (Blueprint $table) {
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'enabled')) { 
                     $table->smallInteger('enabled')->default(0)->change();
                 } else {
                     $table->smallInteger('enabled')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', '__order')) { 
+                if (Schema::hasColumn('wisiloadviedvalidationtable', '__order')) { 
                     $table->bigInteger('__order')->default(0)->change();
                 } else {
                     $table->bigInteger('__order')->default(0);
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'title')) { 
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'title')) { 
                     $table->string('title')->nullable()->change();
                 } else {
                     $table->string('title')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'condition')) { 
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'condition')) { 
                     $table->longText('condition')->nullable()->change();
                 } else {
                     $table->longText('condition')->nullable();
                 }
-                if (Schema::hasColumn('adminlteadviedvalidationtable', 'message')) { 
+                if (Schema::hasColumn('wisiloadviedvalidationtable', 'message')) { 
                     $table->longText('message')->nullable()->change();
                 } else {
                     $table->longText('message')->nullable();
                 }
             });
             
-        } // if (!Schema::hasTable('adminlteadviedvalidationtable')) {
-        /* {{@snippet:end_adminlteadviedvalidationtable_migration}} */
+        } // if (!Schema::hasTable('wisiloadviedvalidationtable')) {
+        /* {{@snippet:end_wisiloadviedvalidationtable_migration}} */
         
-        Schema::table('adminlteadvieddatabasetable', function(Blueprint $table) {
-            if (Schema::hasColumn('adminlteadvieddatabasetable', 'database_type')) { 
+        Schema::table('wisiloadvieddatabasetable', function(Blueprint $table) {
+            if (Schema::hasColumn('wisiloadvieddatabasetable', 'database_type')) { 
                 $table->unsignedBigInteger('database_type')->nullable()->unsigned()->change();
             } else {
                 $table->unsignedBigInteger('database_type')->nullable()->unsigned();
             }
 
-            $foreignKeys = $this->listTableForeignKeys('adminlteadvieddatabasetable');
+            $foreignKeys = $this->listTableForeignKeys('wisiloadvieddatabasetable');
 
-            if (!in_array('adminlteadvieddatabasetable_database_type_foreign', $foreignKeys)) {
-                $table->foreign('database_type')->references('id')->on('adminlteadviedlookuptable'); 
+            if (!in_array('wisiloadvieddatabasetable_database_type_foreign', $foreignKeys)) {
+                $table->foreign('database_type')->references('id')->on('wisiloadviedlookuptable'); 
             }     
         });
 
-        Schema::table('adminlteadviedquerytable', function(Blueprint $table) {
-            if (Schema::hasColumn('adminlteadviedquerytable', 'template_id')) { 
+        Schema::table('wisiloadviedquerytable', function(Blueprint $table) {
+            if (Schema::hasColumn('wisiloadviedquerytable', 'template_id')) { 
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned()->change();
             } else {
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned();
             }
 
-            $foreignKeys = $this->listTableForeignKeys('adminlteadviedquerytable');
+            $foreignKeys = $this->listTableForeignKeys('wisiloadviedquerytable');
 
-            if (!in_array('adminlteadviedquerytable_template_id_foreign', $foreignKeys)) {
-                $table->foreign('template_id')->references('id')->on('adminlteadviedtemplatetable'); 
+            if (!in_array('wisiloadviedquerytable_template_id_foreign', $foreignKeys)) {
+                $table->foreign('template_id')->references('id')->on('wisiloadviedtemplatetable'); 
             }     
         });
-        Schema::table('adminlteadviedquerytable', function(Blueprint $table) {
-            if (Schema::hasColumn('adminlteadviedquerytable', 'database_id')) { 
+        Schema::table('wisiloadviedquerytable', function(Blueprint $table) {
+            if (Schema::hasColumn('wisiloadviedquerytable', 'database_id')) { 
                 $table->unsignedBigInteger('database_id')->nullable()->unsigned()->change();
             } else {
                 $table->unsignedBigInteger('database_id')->nullable()->unsigned();
             }
 
-            $foreignKeys = $this->listTableForeignKeys('adminlteadviedquerytable');
+            $foreignKeys = $this->listTableForeignKeys('wisiloadviedquerytable');
 
-            if (!in_array('adminlteadviedquerytable_database_id_foreign', $foreignKeys)) {
-                $table->foreign('database_id')->references('id')->on('adminlteadvieddatabasetable'); 
+            if (!in_array('wisiloadviedquerytable_database_id_foreign', $foreignKeys)) {
+                $table->foreign('database_id')->references('id')->on('wisiloadvieddatabasetable'); 
             }     
         });
-        Schema::table('adminlteadviedactiontable', function(Blueprint $table) {
-            if (Schema::hasColumn('adminlteadviedactiontable', 'template_id')) { 
+        Schema::table('wisiloadviedactiontable', function(Blueprint $table) {
+            if (Schema::hasColumn('wisiloadviedactiontable', 'template_id')) { 
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned()->change();
             } else {
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned();
             }
 
-            $foreignKeys = $this->listTableForeignKeys('adminlteadviedactiontable');
+            $foreignKeys = $this->listTableForeignKeys('wisiloadviedactiontable');
 
-            if (!in_array('adminlteadviedactiontable_template_id_foreign', $foreignKeys)) {
-                $table->foreign('template_id')->references('id')->on('adminlteadviedtemplatetable'); 
+            if (!in_array('wisiloadviedactiontable_template_id_foreign', $foreignKeys)) {
+                $table->foreign('template_id')->references('id')->on('wisiloadviedtemplatetable'); 
             }     
         });
-        Schema::table('adminlteadviedparametertable', function(Blueprint $table) {
-            if (Schema::hasColumn('adminlteadviedparametertable', 'template_id')) { 
+        Schema::table('wisiloadviedparametertable', function(Blueprint $table) {
+            if (Schema::hasColumn('wisiloadviedparametertable', 'template_id')) { 
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned()->change();
             } else {
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned();
             }
 
-            $foreignKeys = $this->listTableForeignKeys('adminlteadviedparametertable');
+            $foreignKeys = $this->listTableForeignKeys('wisiloadviedparametertable');
 
-            if (!in_array('adminlteadviedparametertable_template_id_foreign', $foreignKeys)) {
-                $table->foreign('template_id')->references('id')->on('adminlteadviedtemplatetable'); 
+            if (!in_array('wisiloadviedparametertable_template_id_foreign', $foreignKeys)) {
+                $table->foreign('template_id')->references('id')->on('wisiloadviedtemplatetable'); 
             }     
         });
-        Schema::table('adminlteadviedvalidationtable', function(Blueprint $table) {
-            if (Schema::hasColumn('adminlteadviedvalidationtable', 'template_id')) { 
+        Schema::table('wisiloadviedvalidationtable', function(Blueprint $table) {
+            if (Schema::hasColumn('wisiloadviedvalidationtable', 'template_id')) { 
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned()->change();
             } else {
                 $table->unsignedBigInteger('template_id')->nullable()->unsigned();
             }
 
-            $foreignKeys = $this->listTableForeignKeys('adminlteadviedvalidationtable');
+            $foreignKeys = $this->listTableForeignKeys('wisiloadviedvalidationtable');
 
-            if (!in_array('adminlteadviedvalidationtable_template_id_foreign', $foreignKeys)) {
-                $table->foreign('template_id')->references('id')->on('adminlteadviedtemplatetable'); 
+            if (!in_array('wisiloadviedvalidationtable_template_id_foreign', $foreignKeys)) {
+                $table->foreign('template_id')->references('id')->on('wisiloadviedtemplatetable'); 
             }     
         });
 
@@ -938,19 +938,19 @@ class ADVIEDRevision20211028000000 extends Migration
 
         /* {{@snippet:begin_down_method}} */
         /*
-        Schema::drop('adminlteadviedlookuptable');
+        Schema::drop('wisiloadviedlookuptable');
   
-        Schema::drop('adminlteadvieddatabasetable');
+        Schema::drop('wisiloadvieddatabasetable');
   
-        Schema::drop('adminlteadviedtemplatetable');
+        Schema::drop('wisiloadviedtemplatetable');
   
-        Schema::drop('adminlteadviedquerytable');
+        Schema::drop('wisiloadviedquerytable');
   
-        Schema::drop('adminlteadviedactiontable');
+        Schema::drop('wisiloadviedactiontable');
   
-        Schema::drop('adminlteadviedparametertable');
+        Schema::drop('wisiloadviedparametertable');
   
-        Schema::drop('adminlteadviedvalidationtable');
+        Schema::drop('wisiloadviedvalidationtable');
 
         */
 		/* {{@snippet:end_down_method}} */

@@ -100,7 +100,7 @@ export default {
                 is_export_data_loading: false,
                 is_export_data_loaded: false,
                 external_files: [
-                    ("/js/adminlte/xlsx/xlsx.full.min.js"),
+                    ("/js/wisilo/xlsx/xlsx.full.min.js"),
                 ],
             }
         };
@@ -185,7 +185,7 @@ export default {
 
             self.page.is_variables_loading = true;
 
-            axios.get(AdminLTEHelper.getAPIURL("adminlte/get_page_variables/adminlteadvied_export"))
+            axios.get(WisiloHelper.getAPIURL("wisilo/get_page_variables/wisiloadvied_export"))
                 .then(({ data }) => {
                     self.page.is_variables_loaded = true;
                     self.page.is_variables_loading = false;
@@ -197,7 +197,7 @@ export default {
                     self.page.has_server_error = true;
                     self.processLoadQueue();
                 }).finally(function() {
-                    AdminLTEHelper.initializePermissions(self.page.variables, false);
+                    WisiloHelper.initializePermissions(self.page.variables, false);
                     self.processLoadQueue();
                 });
         },
@@ -209,7 +209,7 @@ export default {
 
             self.page.is_export_data_loading = true;
             
-            axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_export_table/" + self.id))
+            axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_export_table/" + self.id))
                 .then(({ data }) => {
                     self.page.is_export_data_loaded = true;
                     self.page.is_export_data_loading = false;
@@ -348,9 +348,9 @@ export default {
     },
     mounted() {
         this.id = this.$route.params.id;
-        this.main_folder = AdminLTEHelper.getMainFolder();
+        this.main_folder = WisiloHelper.getMainFolder();
         this.body_loader_active = true;
-        AdminLTEHelper.loadExternalFiles(this.page.external_files, this.processLoadQueue());
+        WisiloHelper.loadExternalFiles(this.page.external_files, this.processLoadQueue());
     }
 }
 </script>

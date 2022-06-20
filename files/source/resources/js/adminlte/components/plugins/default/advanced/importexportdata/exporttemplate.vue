@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><router-link :to="'/' + main_folder + '/home'">{{ $t('Home') }}</router-link></li>
-                            <li class="breadcrumb-item"><router-link :to="'/' + main_folder + '/adminlteadvied_export'">{{ $t("Export") }}</router-link></li>
+                            <li class="breadcrumb-item"><router-link :to="'/' + main_folder + '/wisiloadvied_export'">{{ $t("Export") }}</router-link></li>
                             <li class="breadcrumb-item active">{{ $t("Template Detail") }}</li>
                         </ol>
                     </div>
@@ -792,8 +792,8 @@
                     is_data_loading: false,
                     is_data_loaded: false,
                     external_files: [
-                        ("/js/adminlte/jsquerybuilder/css/query-builder.default.min-custom.css"),
-                        ("/js/adminlte/jsquerybuilder/js/query-builder.standalone.min.js")
+                        ("/js/wisilo/jsquerybuilder/css/query-builder.default.min-custom.css"),
+                        ("/js/wisilo/jsquerybuilder/js/query-builder.standalone.min.js")
                     ],
                 },
                 body_loader_active: false,
@@ -841,7 +841,7 @@
             saveDatabase: function () {
                 var self = this;
                 self.$Progress.start();
-                self.DatabaseForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_database"))
+                self.DatabaseForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_database"))
                     .then(({ data }) => {
                     self.$Progress.finish();
                     self.id = data.id;
@@ -906,7 +906,7 @@
             submitDatabaseDeleteForm: function () {
                 var self = this;
                 self.$Progress.start();
-                self.formDatabaseDelete.post(AdminLTEHelper.getAPIURL("adminlteadvied/delete_database"))
+                self.formDatabaseDelete.post(WisiloHelper.getAPIURL("wisiloadvied/delete_database"))
                     .then(({ data }) => {
                         self.$Progress.finish();
                         self.delete_form.has_error = data.has_error;
@@ -946,7 +946,7 @@
 
                 this.page.is_database_type_options_loading = true;
                 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_databasetype_list"))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_databasetype_list"))
                     .then(({ data }) => {
                         this.page.is_database_type_options_loaded = true;
                         this.page.is_database_type_options_loading = false;
@@ -962,7 +962,7 @@
             saveTemplate: function () {
                 var self = this;
                 self.$Progress.start();
-                self.TemplateForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_template"))
+                self.TemplateForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_template"))
                     .then(({ data }) => {
                     self.$Progress.finish();
                     self.id = data.id;
@@ -1064,7 +1064,7 @@
                     if (!self.page.is_data_loaded) {
                         self.loadTemplateData(function(){
                             setTimeout(function() {
-                                AdminLTEHelper.initializePermissions(self.page.variables, false);
+                                WisiloHelper.initializePermissions(self.page.variables, false);
 
                                 $("#QueryForm_database_id").on("change",function(e){
                                     self.renderDatabaseButton(e.target.value);
@@ -1098,7 +1098,7 @@
 
                 self.page.is_variables_loading = true;
                 self.page.is_variables_loaded = true;
-                axios.get(AdminLTEHelper.getAPIURL("adminlte/get_page_variables/proje"))
+                axios.get(WisiloHelper.getAPIURL("wisilo/get_page_variables/proje"))
                     .then(({ data }) => {
                         self.page.is_variables_loaded = true;
                         self.page.is_variables_loading = false;
@@ -1110,8 +1110,8 @@
                         self.page.has_server_error = true;
                         self.processLoadQueue();
                     }).finally(function() {
-                        AdminLTEHelper.initializePermissions(self.page.variables, false);
-                        self.page.authorization = AdminLTEHelper.hasUserADVIEDAuthorized(self.page.variables, "exporttemplate");
+                        WisiloHelper.initializePermissions(self.page.variables, false);
+                        self.page.authorization = WisiloHelper.hasUserADVIEDAuthorized(self.page.variables, "exporttemplate");
                         self.processLoadQueue();
                     });
 
@@ -1126,7 +1126,7 @@
 
                 self.page.is_variable_option_list_loading = true;
                 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_variable_option_list"))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_variable_option_list"))
                     .then(({ data }) => {
                         self.page.is_variable_option_list_loaded = true;
                         self.page.is_variable_option_list_loading = false;
@@ -1187,7 +1187,7 @@
 
                 self.page.is_result_option_list_loading = true;
                 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_result_option_list"))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_result_option_list"))
                     .then(({ data }) => {
                         self.page.is_result_option_list_loaded = true;
                         self.page.is_result_option_list_loading = false;
@@ -1209,7 +1209,7 @@
 
                 self.page.is_parameter_list_loading = true;
                 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_parameterlist/" + self.id))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_parameterlist/" + self.id))
                     .then(({ data }) => {
                         self.page.is_parameter_list_loaded = true;
                         self.page.is_parameter_list_loading = false;
@@ -1225,7 +1225,7 @@
             loadTemplateData: function (callback) {
                 var self = this;
 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_template/" + self.id))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_template/" + self.id))
                     .then(({ data }) => {
                         self.data = data;
                         self.TemplateForm.id = data.template.id;
@@ -1260,7 +1260,7 @@
             submitTemplateDeleteForm: function () {
                 var self = this;
                 self.$Progress.start();
-                self.formDelete.post(AdminLTEHelper.getAPIURL("adminlteadvied/delete_template"))
+                self.formDelete.post(WisiloHelper.getAPIURL("wisiloadvied/delete_template"))
                     .then(({ data }) => {
                         self.$Progress.finish();
                         self.delete_form.has_error = data.has_error;
@@ -1277,7 +1277,7 @@
                                 timer: 2000,
                                 timerProgressBar: true,
                                 onClose: () => {
-                                    self.$router.push('/' + self.main_folder + '/adminlteadvied_export');
+                                    self.$router.push('/' + self.main_folder + '/wisiloadvied_export');
                                 }                            
                             }); 
                         } else {
@@ -1342,7 +1342,7 @@
                 var self = this;
 
                 self.$Progress.start();
-                self.ParameterForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_parameter"))
+                self.ParameterForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_parameter"))
                     .then(({ data }) => {
                         self.$Progress.finish();
                         self.page.has_post_error = data.has_error;
@@ -1405,7 +1405,7 @@
             submitDeleteParameterForm: function () {
                 var self = this;
                 self.$Progress.start();
-                self.formParameterDelete.post(AdminLTEHelper.getAPIURL("adminlteadvied/delete_parameter"))
+                self.formParameterDelete.post(WisiloHelper.getAPIURL("wisiloadvied/delete_parameter"))
                     .then(({ data }) => {
                         self.$Progress.finish();
                         self.delete_form.has_error = data.has_error;
@@ -1446,7 +1446,7 @@
 
                 self.page.is_querylist_loading = true;
                 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_querylist/" + self.id))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_querylist/" + self.id))
                     .then(({ data }) => {
                         self.page.is_querylist_loaded = true;
                         self.page.is_querylist_loading = false;
@@ -1466,7 +1466,7 @@
 
                 this.page.is_databaselist_loading = true;
                 
-                axios.get(AdminLTEHelper.getAPIURL("adminlteadvied/get_database_option_list"))
+                axios.get(WisiloHelper.getAPIURL("wisiloadvied/get_database_option_list"))
                     .then(({ data }) => {
                         this.page.is_databaselist_loaded = true;
                         this.page.is_databaselist_loading = false;
@@ -1528,7 +1528,7 @@
                 self.QueryForm.condition_json = JSON.stringify($("#processQueryConditionBuilderContainer").queryBuilder("getRules", { allow_invalid: true }));
 
                 self.$Progress.start();
-                self.QueryForm.post(AdminLTEHelper.getAPIURL("adminlteadvied/post_query"))
+                self.QueryForm.post(WisiloHelper.getAPIURL("wisiloadvied/post_query"))
                     .then(({ data }) => {
                         self.$Progress.finish();
                         self.page.has_post_error = data.has_error;
@@ -1591,7 +1591,7 @@
             submitDeleteQueryForm: function () {
                 var self = this;
                 self.$Progress.start();
-                self.formQueryDelete.post(AdminLTEHelper.getAPIURL("adminlteadvied/delete_query"))
+                self.formQueryDelete.post(WisiloHelper.getAPIURL("wisiloadvied/delete_query"))
                     .then(({ data }) => {
                         self.$Progress.finish();
                         self.delete_form.has_error = data.has_error;
@@ -1809,9 +1809,9 @@
         mounted() {
             this.id = this.$route.params.id;
             this.TemplateForm.id = this.id;
-            this.main_folder = AdminLTEHelper.getMainFolder();
+            this.main_folder = WisiloHelper.getMainFolder();
             this.body_loader_active = true;
-            AdminLTEHelper.loadExternalFiles(this.page.external_files, this.processLoadQueue());
+            WisiloHelper.loadExternalFiles(this.page.external_files, this.processLoadQueue());
         }
     }
 </script>
